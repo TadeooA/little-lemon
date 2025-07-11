@@ -1,4 +1,4 @@
-import Image from "next/image"
+import React from "react"
 
 export default function AboutSection() {
   return (
@@ -23,7 +23,7 @@ export default function AboutSection() {
           </div>
           <div className="flex justify-center">
             <div className="w-80 h-96 bg-gray-300 rounded-lg flex items-center justify-center">
-              <Image
+              <img
                 src="/placeholder.svg?height=384&width=320"
                 alt="About Little Lemon"
                 width={320}

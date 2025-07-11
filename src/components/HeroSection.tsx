@@ -1,5 +1,4 @@
-import { Button } from "./ui/button"
-import Image from "next/image"
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
@@ -21,9 +20,9 @@ export default function HeroSection() {
             </Button>
           </div>
           <div className="flex justify-center">
-            <div className="w-80 h-80 bg-gray-400 rounded-lg flex items-center justify-center">
-              <Image
-                src="/placeholder.svg?height=320&width=320"
+            <div className="w-80 h-80 bg-gray-400 rounded-lg flex items-center justify-center overflow-hidden">
+              <img
+                src="/placeholder.svg"
                 alt="Little Lemon Restaurant"
                 width={320}
                 height={320}
@@ -34,5 +33,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,12 +1,18 @@
-"use client"
+import { Bike } from "lucide-react";
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
 
-import { Button } from "./ui/button"
-import { Card, CardContent } from "./ui/card"
-import Image from "next/image"
-import type { CartItem } from "../pages/RestaurantPage"
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  quantity: number;
+}
 
 interface SpecialsSectionProps {
-  onAddToCart: (item: Omit<CartItem, "quantity">) => void
+  onAddToCart: (item: Omit<CartItem, "quantity">) => void;
 }
 
 const specialsData = [
@@ -14,7 +20,7 @@ const specialsData = [
     id: 1,
     name: "Greek salad",
     price: 12.99,
-    image: "/placeholder.svg?height=192&width=300",
+    image: "/placeholder.svg",
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
   },
@@ -22,7 +28,7 @@ const specialsData = [
     id: 2,
     name: "Bruschetta",
     price: 5.99,
-    image: "/placeholder.svg?height=192&width=300",
+    image: "/placeholder.svg",
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
   },
@@ -30,11 +36,11 @@ const specialsData = [
     id: 3,
     name: "Lemon Dessert",
     price: 5.0,
-    image: "/placeholder.svg?height=192&width=300",
+    image: "/placeholder.svg",
     description:
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
   },
-]
+];
 
 export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
   return (
@@ -42,15 +48,17 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900">Specials</h2>
-          <Button className="bg-lemon-green-500 hover:bg-lemon-green-600 text-white px-6 py-2">Online Menu</Button>
+          <Button className="bg-lemon-green-500 hover:bg-lemon-green-600 text-white px-6 py-2">
+            Online Menu
+          </Button>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {specialsData.map((special) => (
             <Card key={special.id} className="overflow-hidden">
               <div className="h-48 bg-gray-300">
-                <Image
-                  src={special.image || "/placeholder.svg"}
+                <img
+                  src={special.image}
                   alt={special.name}
                   width={300}
                   height={192}
@@ -60,14 +68,18 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-bold">{special.name}</h3>
-                  <span className="text-lemon-coral font-semibold text-lg">${special.price}</span>
+                  <span className="text-lemon-coral font-semibold text-lg">
+                    ${special.price}
+                  </span>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{special.description}</p>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                  {special.description}
+                </p>
                 <Button
-                  className="w-full bg-lemon-yellow-400 hover:bg-lemon-yellow-500 text-lemon-green-500 font-semibold"
+                  className="w-full bg-lemon-yellow-400 hover:bg-lemon-yellow-500 text-lemon-green-500 font-semibold flex items-center justify-center gap-2"
                   onClick={() => onAddToCart(special)}
                 >
-                  Order a delivery 🛵
+                  Order a delivery <Bike size={18} />
                 </Button>
               </CardContent>
             </Card>
@@ -75,5 +87,5 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,26 +1,39 @@
-"use client"
+import { Button } from "./ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { X, Plus, Minus } from "lucide-react";
 
-import { Button } from "./ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { X, Plus, Minus } from "lucide-react"
-import Image from "next/image"
-import type { CartItem } from "../pages/RestaurantPage"
-
-interface CartSummaryProps {
-  cart: CartItem[]
-  onUpdateQuantity: (id: number, quantity: number) => void
-  onRemoveFromCart: (id: number) => void
-  onClearCart: () => void
+export interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  image: string;
+  description: string;
+  quantity: number;
 }
 
-export default function CartSummary({ cart, onUpdateQuantity, onRemoveFromCart, onClearCart }: CartSummaryProps) {
-  const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0)
-  const tax = subtotal * 0.1
-  const delivery = 5.0
-  const total = subtotal + tax + delivery
+interface CartSummaryProps {
+  cart: CartItem[];
+  onUpdateQuantity: (id: number, quantity: number) => void;
+  onRemoveFromCart: (id: number) => void;
+  onClearCart: () => void;
+}
+
+export default function CartSummary({
+  cart,
+  onUpdateQuantity,
+  onRemoveFromCart,
+  onClearCart,
+}: CartSummaryProps) {
+  const subtotal = cart.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  const tax = subtotal * 0.1;
+  const delivery = 5.0;
+  const total = subtotal + tax + delivery;
 
   if (cart.length === 0) {
-    return null
+    return null;
   }
 
   return (
@@ -29,7 +42,12 @@ export default function CartSummary({ cart, onUpdateQuantity, onRemoveFromCart, 
         <CardHeader className="pb-3">
           <div className="flex justify-between items-center">
             <CardTitle className="text-lg">Your Order</CardTitle>
-            <Button variant="ghost" size="sm" onClick={onClearCart} className="text-gray-500 hover:text-red-500">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClearCart}
+              className="text-gray-500 hover:text-red-500"
+            >
               <X className="h-4 w-4" />
             </Button>
           </div>
@@ -38,8 +56,11 @@ export default function CartSummary({ cart, onUpdateQuantity, onRemoveFromCart, 
           {/* Cart Items */}
           <div className="max-h-60 overflow-y-auto space-y-3">
             {cart.map((item) => (
-              <div key={item.id} className="flex items-center space-x-3 p-2 border rounded-lg">
-                <Image
+              <div
+                key={item.id}
+                className="flex items-center space-x-3 p-2 border rounded-lg"
+              >
+                <img
                   src={item.image || "/placeholder.svg"}
                   alt={item.name}
                   width={50}
@@ -55,16 +76,22 @@ export default function CartSummary({ cart, onUpdateQuantity, onRemoveFromCart, 
                     size="sm"
                     variant="outline"
                     className="h-6 w-6 p-0 bg-transparent"
-                    onClick={() => onUpdateQuantity(item.id, item.quantity - 1)}
+                    onClick={() =>
+                      onUpdateQuantity(item.id, item.quantity - 1)
+                    }
                   >
                     <Minus className="h-3 w-3" />
                   </Button>
-                  <span className="text-sm w-6 text-center">{item.quantity}</span>
+                  <span className="text-sm w-6 text-center">
+                    {item.quantity}
+                  </span>
                   <Button
                     size="sm"
                     variant="outline"
                     className="h-6 w-6 p-0 bg-transparent"
-                    onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
+                    onClick={() =>
+                      onUpdateQuantity(item.id, item.quantity + 1)
+                    }
                   >
                     <Plus className="h-3 w-3" />
                   </Button>
@@ -108,5 +135,5 @@ export default function CartSummary({ cart, onUpdateQuantity, onRemoveFromCart, 
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

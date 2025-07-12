@@ -50,7 +50,7 @@ export default function RestaurantPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <Header cartItemCount={cart.reduce((total, item) => total + item.quantity, 0)} />
       <HeroSection />
       <SpecialsSection onAddToCart={addToCart} />

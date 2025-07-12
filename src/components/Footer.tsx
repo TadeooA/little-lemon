@@ -2,16 +2,16 @@ import { Circle } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-lemon-green-500 py-12">
+    <footer className="bg-teal-950 py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo */}
           <div>
-            <div className="w-16 h-12 bg-gray-300 rounded flex items-center justify-center mb-4">
+            <div className="w-16 h-12  rounded flex items-center justify-center mb-4">
               <div className="relative">
-                <Circle className="h-8 w-8 text-lemon-yellow-400 fill-lemon-yellow-400" />
+                <Circle className="h-8 w-8 text-yellow-400 " />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sm font-bold text-lemon-green-500">🍋</span>
+                  <span className="text-sm font-bold ">🍋</span>
                 </div>
               </div>
             </div>

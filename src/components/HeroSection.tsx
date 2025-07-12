@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="bg-lemon-green-500 py-20">
+    <section id="home" className=" py-20">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-white">
@@ -14,7 +14,7 @@ export default function HeroSection() {
             </p>
             <Button
               size="lg"
-              className="bg-lemon-yellow-400 hover:bg-lemon-yellow-500 text-lemon-green-500 font-semibold px-8 py-3"
+              className="bg-yellow-500 hover:bg-lemon-yellow-500 text-neutral-700 font-semibold px-8 py-3"
             >
               Reserve Table
             </Button>
@@ -22,7 +22,7 @@ export default function HeroSection() {
           <div className="flex justify-center">
             <div className="w-80 h-80 bg-gray-400 rounded-lg flex items-center justify-center overflow-hidden">
               <img
-                src="/placeholder.svg"
+                src="/heroImage.png"
                 alt="Little Lemon Restaurant"
                 width={320}
                 height={320}

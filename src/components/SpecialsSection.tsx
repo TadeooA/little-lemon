@@ -44,19 +44,19 @@ const specialsData = [
 
 export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
   return (
-    <section id="menu" className="py-20 bg-white">
+    <section id="menu" className="py-20 bg-teal-950">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">Specials</h2>
-          <Button className="bg-lemon-green-500 hover:bg-lemon-green-600 text-white px-6 py-2">
+          <h2 className="text-4xl font-bold text-yellow-500">Specials</h2>
+          <Button className="bg-yellow-500 hover:bg-lemon-green-600 text-neutral-900 px-6 py-2">
             Online Menu
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 ">
           {specialsData.map((special) => (
-            <Card key={special.id} className="overflow-hidden">
-              <div className="h-48 bg-gray-300">
+            <Card key={special.id} className="overflow-hidden bg-zinc-950">
+              <div className="h-48 bg-gray-200">
                 <img
                   src={special.image}
                   alt={special.name}
@@ -65,18 +65,18 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <CardContent className="p-6">
+              <CardContent className="p-6 mt-5">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-bold">{special.name}</h3>
-                  <span className="text-lemon-coral font-semibold text-lg">
+                  <span className="text-yellow-500 font-semibold text-lg">
                     ${special.price}
                   </span>
                 </div>
-                <p className="text-gray-600 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                   {special.description}
                 </p>
                 <Button
-                  className="w-full bg-lemon-yellow-400 hover:bg-lemon-yellow-500 text-lemon-green-500 font-semibold flex items-center justify-center gap-2"
+                  className="w-full bg-yellow-500 hover:bg-yellow-500 text-neutral-900 font-semibold flex items-center justify-center gap-2"
                   onClick={() => onAddToCart(special)}
                 >
                   Order a delivery <Bike size={18} />

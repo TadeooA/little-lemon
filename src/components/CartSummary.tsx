@@ -38,7 +38,7 @@ export default function CartSummary({
 
   return (
     <div className="fixed bottom-4 right-4 w-96 max-w-[90vw] z-50">
-      <Card className="bg-white shadow-2xl">
+      <Card className="bg-teal-950 shadow-2xl">
         <CardHeader className="pb-3">
           <div className="flex justify-between items-center">
             <CardTitle className="text-lg">Your Order</CardTitle>
@@ -46,7 +46,7 @@ export default function CartSummary({
               variant="ghost"
               size="sm"
               onClick={onClearCart}
-              className="text-gray-500 hover:text-red-500"
+              className="text-yellow hover:text-red-500"
             >
               <X className="h-4 w-4" />
             </Button>
@@ -69,13 +69,13 @@ export default function CartSummary({
                 />
                 <div className="flex-1 min-w-0">
                   <h4 className="font-medium text-sm truncate">{item.name}</h4>
-                  <p className="text-xs text-gray-600">${item.price}</p>
+                  <p className="text-xs font-bold">${item.price}</p>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-6 w-6 p-0 bg-transparent"
+                    className="h-6 w-6 p-0"
                     onClick={() =>
                       onUpdateQuantity(item.id, item.quantity - 1)
                     }
@@ -129,7 +129,7 @@ export default function CartSummary({
           </div>
 
           {/* Checkout Button */}
-          <Button className="w-full bg-lemon-yellow-400 hover:bg-lemon-yellow-500 text-lemon-green-500 font-semibold">
+          <Button className="w-full bg-yellow-500 hover:bg-lemon-yellow-500 text-neutral-900 font-semibold">
             Proceed to Checkout
           </Button>
         </CardContent>

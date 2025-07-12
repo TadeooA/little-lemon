@@ -1,69 +1,175 @@
-# React + TypeScript + Vite
+Perfecto, aquí tienes el archivo completo `README.md`, todo en **inglés**, con instrucciones detalladas sobre instalación, dependencias, servidor local, despliegue, tecnologías utilizadas, características, preview, etc. Está listo para usar directamente en tu proyecto:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+```markdown
+# 🍋 Little Lemon Restaurant Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is the final project for the **Meta Front-End Developer Professional Certificate** on Coursera. It features a modern, responsive web interface for a fictional restaurant called **Little Lemon**.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Framework:** React + Vite
+- **Language:** TypeScript
+- **Styling:** TailwindCSS
+- **UI Libraries:**
+  - Radix UI
+  - `@radix-ui/react-datepicker` (Date Picker)
+  - `lucide-react` (Icons)
+  - `recharts` (Charts and Data Visualization)
+- **Code Quality:**
+  - ESLint (TypeScript & React specific rules)
+- **CI/CD & Deployment:**
+  - GitHub Actions
+  - GitHub Pages
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🎨 Features
+
+- ⚡ Fast and lightweight with Vite
+- 🌓 Dark and light mode
+- 📅 Interactive date picker
+- 📊 Dynamic data charts
+- 🔧 Component-based architecture
+- 🧩 Accessible UI with Radix
+- 📱 Fully responsive (mobile-friendly)
+- 🚀 Automatic deployment with GitHub Actions
+
+---
+
+## 📂 Project Structure
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+├── public/
+│   └── screenshot.png         # Project preview image
+├── src/
+│   ├── components/            # UI components
+│   ├── pages/                 # Page views
+│   ├── assets/                # Static assets
+│   ├── App.tsx                # Root component
+│   └── main.tsx               # Entry point
+├── tailwind.config.ts
+├── tsconfig.json
+├── vite.config.ts
+└── package.json
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+````
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🛠️ Getting Started
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/little-lemon.git
+cd little-lemon
+````
+
+### 2. Install dependencies
+
+Make sure you have [Node.js](https://nodejs.org/) installed (preferably v18+).
+
+```bash
+npm install
 ```
+
+### 3. Start the development server
+
+```bash
+npm run dev
+```
+
+The project will run locally at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## ✅ Available Scripts
+
+| Script            | Description                      |
+| ----------------- | -------------------------------- |
+| `npm run dev`     | Start local dev server           |
+| `npm run build`   | Build the project for production |
+| `npm run preview` | Preview the production build     |
+| `npm run lint`    | Run ESLint to check code quality |
+
+---
+
+## 🧪 ESLint Setup
+
+This project includes advanced linting configurations with support for:
+
+* TypeScript
+* React
+* JSX/TSX files
+* React-specific DOM rules
+
+You can run the linter with:
+
+```bash
+npm run lint
+```
+
+If needed, you can expand ESLint with:
+
+```bash
+npm install eslint-plugin-react-x eslint-plugin-react-dom -D
+```
+
+---
+
+## 🔄 CI/CD with GitHub Actions
+
+Every time you push to the `main` branch, GitHub Actions will automatically:
+
+1. Install dependencies
+2. Build the project
+3. Deploy the site to GitHub Pages
+
+
+
+---
+
+## 🌐 Live Demo
+
+👉 [View Live Site](https://tadeooa.github.io/little-lemon/)
+
+> Replace `your-username` with your actual GitHub username if needed.
+
+---
+
+## 📷 Preview
+
+![Screenshot of the homepage](./public/previewImage.png)
+
+---
+
+## 📚 Credits
+
+This project was created as part of the **Meta Front-End Developer Certificate** 
+
+Design and development by **Your Name**.
+
+---
+
+## 📄 License
+
+MIT License © 2025 Juan Tadeo
+
+```
+
+---
+
+
+```
+

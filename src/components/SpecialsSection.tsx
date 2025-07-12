@@ -40,6 +40,30 @@ const specialsData = [
     description:
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
   },
+  {
+    id: 4,
+    name: "Pizza Margherita",
+    price: 10.99,
+    image: "/comida3.png",
+    description:
+      "Classic pizza with fresh mozzarella, tomatoes, and basil, drizzled with olive oil.",
+  },
+  {
+    id: 5,
+    name: "Pasta Carbonara",
+    price: 14.99,
+    image: "/comida2.png",
+    description:
+      "Creamy pasta with pancetta, egg, and Parmesan cheese, served with a sprinkle of black pepper.",
+  },
+  {
+    id: 6,
+    name: "Tiramisu",
+    price: 6.99,
+    image: "/comida1.png",
+    description:
+      "A classic Italian dessert made with coffee-soaked ladyfingers and mascarpone cheese.",
+  },
 ];
 
 export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {

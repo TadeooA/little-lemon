@@ -26,7 +26,7 @@ interface ReservationModalProps {
 export const ReservationModal = ({ isOpen, onClose, formData }: ReservationModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md max-h-[75vh] p-6 text-center bg-gradient-to-t from-neutral-950 to-teal-900 shadow-lg rounded-lg ">
+      <DialogContent className="max-w-md max-h-[90vh] p-6 text-center bg-gradient-to-t from-neutral-950 to-teal-900 shadow-lg rounded-lg ">
         <div className="flex justify-center">
           <img
             src="/succesD.png"

@@ -44,9 +44,7 @@ This is the final project for the **Meta Front-End Developer Professional Certif
 ## 🎨 Features
 
 - ⚡ Fast and lightweight with Vite
-- 🌓 Dark and light mode
 - 📅 Interactive date picker
-- 📊 Dynamic data charts
 - 🔧 Component-based architecture
 - 🧩 Accessible UI with Radix
 - 📱 Fully responsive (mobile-friendly)

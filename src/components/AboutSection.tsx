@@ -23,7 +23,7 @@ export default function AboutSection() {
           <div className="flex justify-center">
             <div className="w-80 h-96  rounded-lg flex items-center justify-center">
               <img
-                src="/restaurant2.png?height=384&width=320"
+                src="restaurant2.png?height=384&width=320"
                 alt="About Little Lemon"
                 width={320}
                 height={384}

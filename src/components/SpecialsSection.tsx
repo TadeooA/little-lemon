@@ -82,7 +82,7 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
             <Card key={special.id} className="overflow-hidden bg-zinc-950">
               <div className="h-48 bg-gray-200">
                 <img
-                  src={`${import.meta.env.BASE_URL}${special.image}`}
+                  src={special.image}
                   alt={special.name}
                   width={300}
                   height={192}

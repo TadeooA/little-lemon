@@ -28,7 +28,7 @@ export const ReservationModal = ({ isOpen, onClose, formData }: ReservationModal
       <DialogContent className="max-w-md max-h-[90vh] p-6 text-center bg-gradient-to-t from-neutral-950 to-teal-900 shadow-lg rounded-lg ">
         <div className="flex justify-center">
           <img
-            src={`${import.meta.env.BASE_URL}succesD.png`}
+            src="succesD.png"
             alt="Success"
             className="w-64 h-64 object-contain mb-4"
           />

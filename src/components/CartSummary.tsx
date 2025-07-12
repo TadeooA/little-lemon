@@ -60,7 +60,7 @@ export default function CartSummary({
                 className="flex items-center space-x-3 p-2 border rounded-lg"
               >
                 <img
-                  src={`${import.meta.env.BASE_URL}${item.image}`}
+                  src={item.image}
                   alt={item.name}
                   width={50}
                   height={50}

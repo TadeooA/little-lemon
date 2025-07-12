@@ -20,7 +20,7 @@ const specialsData = [
     id: 1,
     name: "Greek salad",
     price: 12.99,
-    image: "/comida1.png",
+    image: "comida1.png",
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
   },
@@ -28,7 +28,7 @@ const specialsData = [
     id: 2,
     name: "Bruschetta",
     price: 5.99,
-    image: "/comida2.png",
+    image: "comida2.png",
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
   },
@@ -36,7 +36,7 @@ const specialsData = [
     id: 3,
     name: "Lemon Dessert",
     price: 5.0,
-    image: "/comida3.png",
+    image: "comida3.png",
     description:
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
   },
@@ -44,7 +44,7 @@ const specialsData = [
     id: 4,
     name: "Pizza Margherita",
     price: 10.99,
-    image: "/comida3.png",
+    image: "comida3.png",
     description:
       "Classic pizza with fresh mozzarella, tomatoes, and basil, drizzled with olive oil.",
   },
@@ -52,7 +52,7 @@ const specialsData = [
     id: 5,
     name: "Pasta Carbonara",
     price: 14.99,
-    image: "/comida2.png",
+    image: "comida2.png",
     description:
       "Creamy pasta with pancetta, egg, and Parmesan cheese, served with a sprinkle of black pepper.",
   },
@@ -60,7 +60,7 @@ const specialsData = [
     id: 6,
     name: "Tiramisu",
     price: 6.99,
-    image: "/comida1.png",
+    image: "comida1.png",
     description:
       "A classic Italian dessert made with coffee-soaked ladyfingers and mascarpone cheese.",
   },
@@ -82,7 +82,7 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
             <Card key={special.id} className="overflow-hidden bg-zinc-950">
               <div className="h-48 bg-gray-200">
                 <img
-                  src={special.image}
+                  src={`${import.meta.env.BASE_URL}${special.image}`}
                   alt={special.name}
                   width={300}
                   height={192}

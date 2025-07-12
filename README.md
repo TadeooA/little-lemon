@@ -1,4 +1,4 @@
-Perfecto, aquí tienes el archivo completo `README.md`, todo en **inglés**, con instrucciones detalladas sobre instalación, dependencias, servidor local, despliegue, tecnologías utilizadas, características, preview, etc. Está listo para usar directamente en tu proyecto:
+
 
 ---
 

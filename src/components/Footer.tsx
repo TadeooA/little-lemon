@@ -9,9 +9,9 @@ export default function Footer() {
           <div>
             <div className="w-16 h-12  rounded flex items-center justify-center mb-4">
               <div className="relative">
-                <Circle className="h-8 w-8 text-yellow-400 " />
+                
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-sm font-bold ">🍋</span>
+                  <span className="text-4xl font-bold ">🍋</span>
                 </div>
               </div>
             </div>

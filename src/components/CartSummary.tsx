@@ -46,14 +46,13 @@ export default function CartSummary({
               variant="ghost"
               size="sm"
               onClick={onClearCart}
-              className="text-yellow hover:text-red-500"
+              className="text-yellow hover:text-red-500 cursor-pointer"
             >
               <X className="h-4 w-4" />
             </Button>
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Cart Items */}
           <div className="max-h-60 overflow-y-auto space-y-3">
             {cart.map((item) => (
               <div
@@ -75,7 +74,7 @@ export default function CartSummary({
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-6 w-6 p-0"
+                    className="h-6 w-6 p-0 bg-transparent cursor-pointer"
                     onClick={() =>
                       onUpdateQuantity(item.id, item.quantity - 1)
                     }
@@ -88,7 +87,7 @@ export default function CartSummary({
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-6 w-6 p-0 bg-transparent"
+                    className="h-6 w-6 p-0 bg-transparent cursor-pointer"
                     onClick={() =>
                       onUpdateQuantity(item.id, item.quantity + 1)
                     }
@@ -99,7 +98,7 @@ export default function CartSummary({
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-red-500 hover:text-red-700 h-6 w-6 p-0"
+                  className="text-red-500 hover:text-red-700 h-6 w-6 p-0 cursor-pointer"
                   onClick={() => onRemoveFromCart(item.id)}
                 >
                   <X className="h-3 w-3" />
@@ -108,7 +107,6 @@ export default function CartSummary({
             ))}
           </div>
 
-          {/* Order Summary */}
           <div className="border-t pt-3 space-y-2">
             <div className="flex justify-between text-sm">
               <span>Subtotal</span>
@@ -128,8 +126,7 @@ export default function CartSummary({
             </div>
           </div>
 
-          {/* Checkout Button */}
-          <Button className="w-full bg-yellow-500 hover:bg-lemon-yellow-500 text-neutral-900 font-semibold">
+          <Button className="w-full bg-yellow-500 hover:bg-lemon-yellow-500 text-neutral-900 font-semibold cursor-pointer">
             Proceed to Checkout
           </Button>
         </CardContent>

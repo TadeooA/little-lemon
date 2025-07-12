@@ -23,7 +23,7 @@ const testimonialsData = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 bg-lemon-green-500">
+    <section className="py-20 bg-gradient-to-b from-neutral-900 to-teal-950">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-12">Testimonials</h2>
 
@@ -31,16 +31,16 @@ export default function TestimonialsSection() {
           {testimonialsData.map((testimonial) => (
             <Card key={testimonial.id} className="bg-white">
               <CardContent className="p-4 text-center">
-                <div className="flex justify-center mb-3">
+                <div className="flex justify-center mb-3 space-x-1 mt-3">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-lemon-yellow-400 fill-lemon-yellow-400" />
+                    <Star key={i} className="h-4 w-4 text-yellow-600 fill-yellow-400" />
                   ))}
                 </div>
                 <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-3 flex items-center justify-center">
                   <User className="h-8 w-8 text-gray-500" />
                 </div>
-                <h4 className="font-semibold text-sm mb-1">{testimonial.name}</h4>
-                <p className="text-xs text-gray-600">{testimonial.review}</p>
+                <h4 className="font-bold text-sm mb-1 text-teal-800">{testimonial.name}</h4>
+                <p className="text-xs text-gray-600 font-semibold">{testimonial.review}</p>
               </CardContent>
             </Card>
           ))}

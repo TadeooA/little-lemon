@@ -4,6 +4,15 @@ interface HeaderProps {
   cartItemCount: number
 }
 
+const links = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#menu", label: "Menu" },
+  { href: "#reservations", label: "Reservations" },
+  { href: "#order", label: "Order online" },
+  { href: "#login", label: "Login" }
+]
+
 export default function Header({ cartItemCount }: HeaderProps) {
   return (
     <header className=" shadow-sm border-b">
@@ -12,11 +21,13 @@ export default function Header({ cartItemCount }: HeaderProps) {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-12 h-8 bg-gray-300 rounded flex items-center justify-center">
+            <div className="w-28 h-8  rounded flex items-center justify-center">
               <div className="relative">
-                <Circle className="h-6 w-6 text-lemon-yellow-400 fill-lemon-yellow-400" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-xs font-bold ">🍋</span>
+             
+                <div className="absolute inset-0 flex flex-row items-center justify-center gap-2">
+                  <span className="text-2xl font-bold ">🍋</span>
+                  <span className="text-xs font-bold text-lemon-yellow-400 text-center">Little Lemon</span>
+                  <span className="text-xs font-bold text-lemon-yellow-400 text-center">by Tadeo</span>
                 </div>
               </div>
             </div>
@@ -24,23 +35,20 @@ export default function Header({ cartItemCount }: HeaderProps) {
 
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#home" className=" hover:text-lemon-green-500 transition-colors font-medium">
-              Home
-            </a>
-            <a href="#about" className=" hover:text-lemon-green-500 transition-colors font-medium">
-              About
-            </a>
-            <a href="#menu" className=" hover:text-lemon-green-500 transition-colors font-medium">
-              Menu
-            </a>
-            <a href="#reservations" className=" hover:text-lemon-green-500 transition-colors font-medium">
-              Reservations
-            </a>
-            <a href="#order" className=" hover:text-lemon-green-500 transition-colors font-medium">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-lemon-green-500 transition-colors font-medium cursor-pointer"
+              >
+                {link.label}
+              </a>
+            ))}
+
+            
+
+             <a href="#order" className=" hover:text-lemon-green-500 transition-colors font-medium cursor-pointer">
               Order online {cartItemCount > 0 && `(${cartItemCount})`}
-            </a>
-            <a href="#login" className=" hover:text-lemon-green-500 transition-colors font-medium">
-              Login
             </a>
           </nav>
         </div>

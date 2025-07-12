@@ -20,7 +20,7 @@ const specialsData = [
     id: 1,
     name: "Greek salad",
     price: 12.99,
-    image: "/placeholder.svg",
+    image: "/comida1.png",
     description:
       "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
   },
@@ -28,7 +28,7 @@ const specialsData = [
     id: 2,
     name: "Bruschetta",
     price: 5.99,
-    image: "/placeholder.svg",
+    image: "/comida2.png",
     description:
       "Our Bruschetta is made from grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
   },
@@ -36,7 +36,7 @@ const specialsData = [
     id: 3,
     name: "Lemon Dessert",
     price: 5.0,
-    image: "/placeholder.svg",
+    image: "/comida3.png",
     description:
       "This comes straight from grandma's recipe book, every last ingredient has been sourced and is as authentic as can be imagined.",
   },
@@ -48,7 +48,7 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl font-bold text-yellow-500">Specials</h2>
-          <Button className="bg-yellow-500 hover:bg-lemon-green-600 text-neutral-900 px-6 py-2">
+          <Button className="bg-yellow-500 hover:bg-lemon-green-600 text-neutral-900 px-6 py-2 cursor-pointer">
             Online Menu
           </Button>
         </div>
@@ -76,7 +76,7 @@ export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
                   {special.description}
                 </p>
                 <Button
-                  className="w-full bg-yellow-500 hover:bg-yellow-500 text-neutral-900 font-semibold flex items-center justify-center gap-2"
+                  className="w-full bg-yellow-500 hover:bg-yellow-500 text-neutral-900 font-semibold flex items-center justify-center gap-2  cursor-pointer"
                   onClick={() => onAddToCart(special)}
                 >
                   Order a delivery <Bike size={18} />

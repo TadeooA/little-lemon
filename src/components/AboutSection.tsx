@@ -2,7 +2,7 @@ import React from "react"
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 ">
+    <section id="about" className="py-20 p-5 ">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -24,7 +24,7 @@ export default function AboutSection() {
           <div className="flex justify-center">
             <div className="w-80 h-96  rounded-lg flex items-center justify-center">
               <img
-                src="/placeholder.svg?height=384&width=320"
+                src="/restaurant2.png?height=384&width=320"
                 alt="About Little Lemon"
                 width={320}
                 height={384}

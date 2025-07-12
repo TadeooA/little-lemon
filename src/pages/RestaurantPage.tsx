@@ -8,6 +8,8 @@ import TestimonialsSection from "../components/TestimonialsSection"
 import AboutSection from "../components/AboutSection"
 import Footer from "../components/Footer"
 import CartSummary from "../components/CartSummary"
+import ReservationSection from "../components/ReservationSection"
+import SuccesModal from "../components/SuccesModal"
 
 export interface CartItem {
   id: number
@@ -54,6 +56,7 @@ export default function RestaurantPage() {
       <Header cartItemCount={cart.reduce((total, item) => total + item.quantity, 0)} />
       <HeroSection />
       <SpecialsSection onAddToCart={addToCart} />
+      <ReservationSection />
       <TestimonialsSection />
       <AboutSection />
       <Footer />
@@ -62,6 +65,13 @@ export default function RestaurantPage() {
         onUpdateQuantity={updateQuantity}
         onRemoveFromCart={removeFromCart}
         onClearCart={clearCart}
+      />
+      <SuccesModal
+        isOpen={cart.length > 0}
+        onClose={() => setCart([])}
+        formData={cart.map((item) => ({ ...item, total: item.price * item.quantity }))}
+        
+      
       />
     </div>
   )

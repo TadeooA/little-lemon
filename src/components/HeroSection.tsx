@@ -25,7 +25,7 @@ export default function HeroSection() {
           <div className="flex justify-center">
             <div className="w-80 h-80 bg-gray-400 rounded-lg flex items-center justify-center overflow-hidden">
               <img
-                src="/heroImage.png"
+                src="heroImage.png"
                 alt="Little Lemon Restaurant"
                 width={320}
                 height={320}

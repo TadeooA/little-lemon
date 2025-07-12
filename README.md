@@ -1,11 +1,25 @@
 
 
----
 
-```markdown
+
+
 # 🍋 Little Lemon Restaurant Website
 
 This is the final project for the **Meta Front-End Developer Professional Certificate** on Coursera. It features a modern, responsive web interface for a fictional restaurant called **Little Lemon**.
+
+
+
+## 🌐 Live Demo
+
+👉 [View Live Site](https://tadeooa.github.io/little-lemon/)
+
+> Replace `your-username` with your actual GitHub username if needed.
+
+
+
+## 📷 Preview
+
+![Screenshot of the homepage](./public/previewImage.png)
 
 ---
 
@@ -138,21 +152,7 @@ Every time you push to the `main` branch, GitHub Actions will automatically:
 
 
 
----
 
-## 🌐 Live Demo
-
-👉 [View Live Site](https://tadeooa.github.io/little-lemon/)
-
-> Replace `your-username` with your actual GitHub username if needed.
-
----
-
-## 📷 Preview
-
-![Screenshot of the homepage](./public/previewImage.png)
-
----
 
 ## 📚 Credits
 
@@ -166,7 +166,7 @@ This project was created as part of the **Meta Front-End Developer Certificate**
 
 MIT License © 2025 Juan Tadeo
 
-```
+
 
 ---
 

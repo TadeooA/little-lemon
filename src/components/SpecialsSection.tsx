@@ -44,7 +44,7 @@ const specialsData = [
 
 export default function SpecialsSection({ onAddToCart }: SpecialsSectionProps) {
   return (
-    <section id="menu" className="py-20 bg-teal-950">
+    <section id="menu" className="py-20 bg-gradient-to-t from-neutral-900 to-teal-950">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-4xl font-bold text-yellow-500">Specials</h2>

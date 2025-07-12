@@ -15,7 +15,7 @@ const links = [
 
 export default function Header({ cartItemCount }: HeaderProps) {
   return (
-    <header className=" shadow-sm border-b">
+    <header className="bg-gradient-to-b from-neutral-950 to-teal-950 shadow-sm border-b">
       
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">

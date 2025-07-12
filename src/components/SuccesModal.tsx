@@ -42,10 +42,10 @@ export const ReservationModal = ({ isOpen, onClose, formData }: ReservationModal
         </DialogHeader>
 
         <div className="flex flex-row justify-center -mt-2 text-white">
-          <p className="text-sm"> Your reservation date is {formData.date} 
-            at {formData.time} for {formData.numberOfPeople} people.
+          <p className="text-sm"> Your reservation date is <span className="font-bold text-red-500">{formData.date}</span> at {""} 
+          <span className="font-bold text-red-500">{formData.time}</span> for {" "}<span className="font-bold text-red-500">{formData.numberOfPeople}</span> people.
             {formData.specialComments && (
-              <p><strong>Comments:</strong> {formData.specialComments}</p>
+              <p className="text-sm text-yellow-500">Comments: {" "}{formData.specialComments}</p>
             )}
           </p>
 

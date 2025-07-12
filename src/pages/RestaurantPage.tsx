@@ -19,8 +19,40 @@ export interface CartItem {
   quantity: number
 }
 
+export interface FormData {
+ firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    date: string;
+    time: string;
+    numberOfPeople: number;
+    specialComments: string;
+}
 export default function RestaurantPage() {
   const [cart, setCart] = useState<CartItem[]>([])
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false)
+  const [formData, setFormData] = useState<FormData>({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    date: "",
+    time: "",
+    numberOfPeople: 1,
+    specialComments: ""
+  })
+
+  const toggleSuccessModal = () => {
+    setIsSuccessModalOpen((prev) => !prev)
+  }
+  
+  const retrievedData = (data: FormData) => {
+    setFormData({
+      ...data,
+    })
+  }
+
 
   const addToCart = (item: Omit<CartItem, "quantity">) => {
     setCart((prevCart) => {
@@ -56,7 +88,10 @@ export default function RestaurantPage() {
       <Header cartItemCount={cart.reduce((total, item) => total + item.quantity, 0)} />
       <HeroSection />
       <SpecialsSection onAddToCart={addToCart} />
-      <ReservationSection />
+      <ReservationSection 
+        toggle={toggleSuccessModal}
+        retrievedData={retrievedData}
+      />
       <TestimonialsSection />
       <AboutSection />
       <Footer />
@@ -67,11 +102,9 @@ export default function RestaurantPage() {
         onClearCart={clearCart}
       />
       <SuccesModal
-        isOpen={cart.length > 0}
-        onClose={() => setCart([])}
-        formData={cart.map((item) => ({ ...item, total: item.price * item.quantity }))}
-        
-      
+        isOpen={isSuccessModalOpen}
+        onClose={toggleSuccessModal}
+        formData={formData}
       />
     </div>
   )

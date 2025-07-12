@@ -1,8 +1,7 @@
-import { Circle } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="bg-teal-950 py-12">
+    <footer className="bg-gradient-to-t from-neutral-950 to-teal-900 py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Logo */}

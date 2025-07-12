@@ -1,4 +1,3 @@
-// src/pages/Reservation.tsx
 import {
   Card,
   CardContent,
@@ -10,29 +9,50 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Calendar, Clock, Users } from "lucide-react";
-import { AlertDialog } from "./ui/alert-dialog";
 
-const formInformation = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  date: "",
-  time: "",
-  numberOfPeople: 1,
-  specialComments: "",
+type formInformation = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  numberOfPeople: number;
+  specialComments: string;
 };
 
-function handleButtonClick() {
-    // Handle form submission logic here
-    console.log("Reservation confirmed with the following details:", formInformation);
-    // Reset form or show confirmation message
-    alert("Reservation confirmed! Thank you for choosing us.");
-    // Reset formInformation
-    
-  }
+type ReservationProps = {
+  toggle: () => void;
+  retrievedData?: (data: formInformation) => void;
+};
 
-const Reservation = () => {
+const Reservation: React.FC<ReservationProps> = ({ toggle, retrievedData }) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    const data: formInformation = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      date: formData.get("date") as string,
+      time: formData.get("time") as string,
+      numberOfPeople: parseInt(formData.get("numberOfPeople") as string, 10),
+      specialComments: formData.get("specialComments") as string,
+    };
+
+    console.log("Form submitted with data:", data);
+
+    if (retrievedData) {
+      retrievedData(data);
+    }
+
+    toggle();
+    form.reset();
+  };
+
   return (
     <section id="reservations" className="py-20 bg-gradient-to-b from-neutral-900 to-teal-900 text-white">
       <div className="container mx-auto px-4">
@@ -56,56 +76,59 @@ const Reservation = () => {
                   Complete the details to confirm your reservation
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-white mb-2 block">
+                        First Name
+                      </label>
+                      <Input name="firstName" placeholder="Your first name" required />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-white mb-2 block">
+                        Last Name
+                      </label>
+                      <Input name="lastName" placeholder="Your last name" required />
+                    </div>
+                  </div>
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">
-                      First Name
-                    </label>
-                    <Input placeholder="Your first name" />
+                    <label className="text-sm font-medium text-white mb-2 block">Email</label>
+                    <Input name="email" type="email" placeholder="your@email.com" required />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-white mb-2 block">Phone</label>
+                    <Input name="phone" type="tel" placeholder="+1 234 567 8900" required />
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-sm font-medium text-white mb-2 block">Date</label>
+                      <Input name="date" type="date" required />
+                    </div>
+                    <div>
+                      <label className="text-sm font-medium text-white mb-2 block">Time</label>
+                      <Input name="time" type="time" required />
+                    </div>
                   </div>
                   <div>
                     <label className="text-sm font-medium text-white mb-2 block">
-                      Last Name
+                      Number of people
                     </label>
-                    <Input placeholder="Your last name" />
-                  </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-white mb-2 block">Email</label>
-                  <Input type="email" placeholder="your@email.com" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-white mb-2 block">Phone</label>
-                  <Input type="tel" placeholder="+1 234 567 8900" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-white mb-2 block">Date</label>
-                    <Input type="date" />
+                    <Input name="numberOfPeople" type="number" min="1" max="12" placeholder="2" required />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-white mb-2 block">Time</label>
-                    <Input type="time" />
+                    <label className="text-sm font-medium text-white mb-2 block">
+                      Special comments
+                    </label>
+                    <Textarea name="specialComments" placeholder="Allergies, celebrations, etc." />
                   </div>
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-white mb-2 block">
-                    Number of people
-                  </label>
-                  <Input type="number" min="1" max="12" placeholder="2" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-white mb-2 block">
-                    Special comments
-                  </label>
-                  <Textarea placeholder="Allergies, celebrations, etc." />
-                </div>
-                <Button className="w-full bg-yellow-500  hover:bg-lemon-green-600 text-neutral-700 font-semibold cursor-pointer transition-colors duration-300"
-                onClick={handleButtonClick} 
-                >
-                  Confirm Reservation
-                </Button>
+                  <Button
+                    type="submit"
+                    className="w-full bg-yellow-500 hover:bg-lemon-green-600 text-neutral-700 font-semibold cursor-pointer transition-colors duration-300"
+                  >
+                    Confirm Reservation
+                  </Button>
+                </form>
               </CardContent>
             </Card>
 
@@ -142,18 +165,10 @@ const Reservation = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <p className="text-sm text-white">
-                    • Reservations are confirmed by phone or email
-                  </p>
-                  <p className="text-sm text-white">
-                    • Maximum 12 people per reservation
-                  </p>
-                  <p className="text-sm text-white">
-                    • Cancellations with 24 hours notice
-                  </p>
-                  <p className="text-sm text-white">
-                    • Tables available for 2 hours
-                  </p>
+                  <p className="text-sm text-white">• Reservations are confirmed by phone or email</p>
+                  <p className="text-sm text-white">• Maximum 12 people per reservation</p>
+                  <p className="text-sm text-white">• Cancellations with 24 hours notice</p>
+                  <p className="text-sm text-white">• Tables available for 2 hours</p>
                 </CardContent>
               </Card>
 
@@ -178,4 +193,3 @@ const Reservation = () => {
 };
 
 export default Reservation;
-

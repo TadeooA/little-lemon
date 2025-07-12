@@ -2,7 +2,7 @@ import React from "react"
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 p-5 ">
+    <section id="about" className="py-20 p-5 bg-gradient-to-b from-neutral-950 to-teal-950 ">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

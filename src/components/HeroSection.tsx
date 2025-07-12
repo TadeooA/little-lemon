@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
-    <section id="home" className=" py-20">
+    <section id="home" className=" bg-gradient-to-b from-neutral-950 to-teal-950 py-20">
       <div className="container mx-auto px-4 ">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-white">
@@ -14,6 +14,9 @@ export default function HeroSection() {
             </p>
             <Button
               size="lg"
+              onClick={() =>
+                window.location.href = "#reservations"
+              }
               className="bg-yellow-500 hover:bg-lemon-yellow-500 text-neutral-700 font-semibold px-8 py-3 cursor-pointer"
             >
               Reserve Table

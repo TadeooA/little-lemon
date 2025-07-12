@@ -23,7 +23,7 @@ const testimonialsData = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 bg-gradient-to-b from-neutral-900 to-teal-950">
+    <section className="py-20 bg-gradient-to-t from-neutral-900 to-teal-900">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-white text-center mb-12">Testimonials</h2>
 

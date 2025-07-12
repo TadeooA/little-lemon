@@ -1,4 +1,3 @@
-import { Circle } from "lucide-react"
 
 interface HeaderProps {
   cartItemCount: number

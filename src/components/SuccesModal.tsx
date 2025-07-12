@@ -1,4 +1,3 @@
-// src/components/ReservationModal.tsx
 import {
   Dialog,
   DialogContent,

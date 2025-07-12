@@ -103,17 +103,32 @@ const ChartTooltip = RechartsPrimitive.Tooltip
 
 const ChartTooltipContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-    React.ComponentProps<"div"> & {
-      hideLabel?: boolean
-      hideIndicator?: boolean
-      indicator?: "line" | "dot" | "dashed"
-      nameKey?: string
-      labelKey?: string
-    }
+  React.ComponentProps<"div"> & {
+    hideLabel?: boolean
+    hideIndicator?: boolean
+    indicator?: "line" | "dot" | "dashed"
+    nameKey?: string
+    labelKey?: string
+    active?: boolean
+    label?: string
+    labelFormatter?: (label: any, payload: any) => React.ReactNode
+    labelClassName?: string
+    formatter?: (
+      value: any,
+      name: any,
+      item: any,
+      index: number,
+      payload: any
+    ) => React.ReactNode
+    color?: string
+    payload?: any[]
+  }
 >(
   (
-    {
+    props,
+    ref
+  ) => {
+    const {
       active,
       payload,
       className,
@@ -127,9 +142,8 @@ const ChartTooltipContent = React.forwardRef<
       color,
       nameKey,
       labelKey,
-    },
-    ref
-  ) => {
+    } = props
+
     const { config } = useChart()
 
     const tooltipLabel = React.useMemo(() => {
@@ -207,14 +221,13 @@ const ChartTooltipContent = React.forwardRef<
                       !hideIndicator && (
                         <div
                           className={cn(
-                            "shrink-0 rounded-[2px] border-[--color-border] bg-[--color-bg]",
-                            {
-                              "h-2.5 w-2.5": indicator === "dot",
-                              "w-1": indicator === "line",
-                              "w-0 border-[1.5px] border-dashed bg-transparent":
-                                indicator === "dashed",
-                              "my-0.5": nestLabel && indicator === "dashed",
-                            }
+                            [
+                              "shrink-0 rounded-[2px] border-[--color-border] bg-[--color-bg]",
+                              indicator === "dot" && "h-2.5 w-2.5",
+                              indicator === "line" && "w-1",
+                              indicator === "dashed" && "w-0 border-[1.5px] border-dashed bg-transparent",
+                              nestLabel && indicator === "dashed" && "my-0.5"
+                            ].filter(Boolean).join(" ")
                           )}
                           style={
                             {
@@ -259,11 +272,12 @@ const ChartLegend = RechartsPrimitive.Legend
 
 const ChartLegendContent = React.forwardRef<
   HTMLDivElement,
-  React.ComponentProps<"div"> &
-    Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
-      hideIcon?: boolean
-      nameKey?: string
-    }
+  React.ComponentProps<"div"> & {
+    payload?: Array<any>
+    verticalAlign?: "top" | "bottom" | "middle"
+    hideIcon?: boolean
+    nameKey?: string
+  }
 >(
   (
     { className, hideIcon = false, payload, verticalAlign = "bottom", nameKey },

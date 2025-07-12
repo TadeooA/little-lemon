@@ -158,7 +158,7 @@ Every time you push to the `main` branch, GitHub Actions will automatically:
 
 This project was created as part of the **Meta Front-End Developer Certificate** 
 
-Design and development by **Your Name**.
+
 
 ---
 
